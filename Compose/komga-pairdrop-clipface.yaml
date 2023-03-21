@@ -36,7 +36,7 @@ services:
     ports:
       - 0000:80 # Sanitized actual ports in use
     environment:
-      - CLIPFACE_USER_PASSWORD=sp133b
+      - CLIPFACE_USER_PASSWORD=xxxxx # Sanitized actual password
       - CLIPFACE_CLIPS_PAGE_TITLE=THE CLIPORIUM
       - CLIPFACE_HEADER_TITLE=CLIPORIUM
       - CLIPFACE_PAGINATION="true"
