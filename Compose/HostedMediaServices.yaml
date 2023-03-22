@@ -82,7 +82,7 @@ services:
   #  container_name: fireshare
   #  restart: unless-stopped
   #  ports:
-  #    - 9500:9500
+  #    - 0000:0000
   #  volumes:
   #    - /e/dockerData/fireshare/data:/data
   #    - /e/dockerData/fireshare/processed:/processed
@@ -90,7 +90,7 @@ services:
   #  environment:
   #    - ADMIN_USERNAME=admin
   #    - ADMIN_PASSWORD=admin
-  #    - SECRET_KEY=xkrtpsfi49358cdvju9c9t4k09
+  #    - SECRET_KEY=
   #    - MINUTES_BETWEEN_VIDEO_SCANS=1
   #    - PUID=1000
   #    - PGID=1000
