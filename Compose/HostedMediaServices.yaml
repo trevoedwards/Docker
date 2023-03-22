@@ -3,6 +3,7 @@ version: "3.8"
 name: HostedMediaServices
 services:
   pairdrop:
+  #Self-Hosted AirDrop alternative
     image: lscr.io/linuxserver/pairdrop:latest
     container_name: pairdrop
     restart: unless-stopped
@@ -16,6 +17,7 @@ services:
       - 127.0.0.1:3000:3000
 
   plex:
+  #Movie/TV Media Server
     image: lscr.io/linuxserver/plex:latest
     container_name: plex
     network_mode: host
@@ -32,6 +34,7 @@ services:
     restart: unless-stopped
 
   komga:
+  #Comic Server
     image: gotson/komga:latest
     container_name: komga
     volumes:
@@ -45,6 +48,7 @@ services:
       - JAVA_TOOL_OPTIONS=-Xmx4g
 
   emulatorjs:
+  #Retro Game Emulator
     image: lscr.io/linuxserver/emulatorjs:latest
     container_name: emulatorjs
     environment:
@@ -61,6 +65,7 @@ services:
     restart: unless-stopped
 
   clipface:
+  #Self-Host Clip Sharing
     image: tomsan/clipface:latest
     container_name: clipface
     restart: unless-stopped
@@ -78,6 +83,7 @@ services:
   # LOADS THE WEBGUI BUT WON'T DISCOVER ANY VIDEOS AND DISPLAYS UNKOWN ERRORS ON THE PAGE. RAAAAH!
   #
   #fireshare:
+  #Self-Host Clip Sharing
   #  image: shaneisrael/fireshare:latest
   #  container_name: fireshare
   #  restart: unless-stopped
