@@ -1,3 +1,8 @@
+<p align="center">
+<img align="center" src="https://github.com/trevoedwards/JamfScripts/blob/main/images/dockerStuff.png" />
+</p>
+<br>
+
 # HostedMediaServices
 
 This Compose file currently contains configurations for three media services:
