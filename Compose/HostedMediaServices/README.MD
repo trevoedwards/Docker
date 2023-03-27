@@ -1,1 +1,7 @@
+# HostedMediaServices
 
+This Compose file currently contains configurations for three media services:
+
+* [Plex](https://github.com/linuxserver/docker-plex) - movie/television media server
+* [Komga](https://github.com/gotson/komga) -  comic book/manga media server
+* [FireShare](https://github.com/ShaneIsrael/fireshare) - share game clips, videos, or other media via unique links
