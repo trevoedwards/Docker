@@ -1,5 +1,5 @@
 <p align="center">
-<img align="center" src="https://github.com/trevoedwards/JamfScripts/blob/main/images/dockerStuff.png" />
+<img align="center" src="https://github.com/trevoedwards/Docker/raw/main/dockerStuff.png" />
 </p>
 <br>
 
