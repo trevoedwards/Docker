@@ -7,7 +7,6 @@
   #     USERNAME                        -  Remote mount username
   #     PASSWORD                        -  Remote mount password
 
-
 ---
 version: "3.8"
 
