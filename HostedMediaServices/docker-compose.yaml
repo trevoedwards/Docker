@@ -13,6 +13,7 @@ version: "3.8"
 services:
   plex:
   #Movie/TV Media Server
+  #https://hub.docker.com/r/linuxserver/plex
     image: lscr.io/linuxserver/plex:latest
     container_name: plex
     network_mode: host
@@ -30,6 +31,8 @@ services:
 
   komga:
   #Comic Book Server
+  #https://komga.org/installation/docker.html
+  #https://github.com/gotson/komga
     image: gotson/komga:latest
     container_name: komga
     volumes:
@@ -44,6 +47,7 @@ services:
 
   fireshare:
   #Self-Hosted Clip Sharing
+  #https://github.com/ShaneIsrael/fireshare
     image: shaneisrael/fireshare:latest
     container_name: fireshare
     restart: unless-stopped
