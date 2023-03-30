@@ -73,7 +73,7 @@ volumes:
         driver_opts:
           type: cifs
           o: "username=USERNAME,password=PASSWORD"
-          device: "//IP.ADDRESS.OF.SMB.SERVER/Configurations/dockerData/komga"
+          device: "//IP.ADDRESS.OF.SMB.SERVER/PATH_TO_DB"
       comic_lib:
         driver_opts:
           type: cifs
