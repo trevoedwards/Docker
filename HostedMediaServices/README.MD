@@ -10,3 +10,5 @@ This Compose file is commented for clarity, mounts smb shares and currently cont
 * [Plex](https://github.com/linuxserver/docker-plex) - movie/television media server
 * [Komga](https://github.com/gotson/komga) -  comic book/manga media server
 * [FireShare](https://github.com/ShaneIsrael/fireshare) - share game clips, videos, or other media via unique links
+
+[Check my website out for more information.](https://trevoedwards.com/index.php/2023/03/29/docker-compose_tut_01/)
