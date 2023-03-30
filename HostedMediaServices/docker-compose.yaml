@@ -73,39 +73,39 @@ volumes:
         driver_opts:
           type: cifs
           o: "username=USERNAME,password=PASSWORD"
-          device: "//IP.ADDRESS.OF.SMB.SERVER/PATH_TO_DB"
+          device: "//REMOTE_IP/PATH_TO_DB"
       comic_lib:
         driver_opts:
           type: cifs
           o: "username=USERNAME,password=PASSWORD"
-          device: "//IP.ADDRESS.OF.SMB/PATH_TO_LIBRARY"
+          device: "//REMOTE_IP/PATH_TO_LIBRARY"
       plex_db:
         driver_opts:
           type: cifs
           o: "username=USERNAME,password=PASSWORD"
-          device: "//IP.ADDRESS.OF.SMB/PATH_TO_DB"
+          device: "//REMOTE_IP/PATH_TO_DB"
       plex_tv:
         driver_opts:
           type: cifs
           o: "username=USERNAME,password=PASSWORD"
-          device: "//IP.ADDRESS.OF.SMB/PATH_TO_LIBRARY"
+          device: "//REMOTE_IP/PATH_TO_LIBRARY"
       plex_movies:
         driver_opts:
           type: cifs
           o: "username=USERNAME,password=PASSWORD"
-          device: "//IP.ADDRESS.OF.SMB/PATH_TO_LIBRARY"
+          device: "//REMOTE_IP/PATH_TO_LIBRARY"
       shared_clips:
         driver_opts:
           type: cifs
           o: "username=USERNAME,password=PASSWORD"
-          device: "//IP.ADDRESS.OF.SMB/PATH_TO_LIBRARY"
+          device: "//REMOTE_IP/PATH_TO_LIBRARY"
       fireshare_data:
         driver_opts:
           type: cifs
           o: "username=USERNAME,password=PASSWORD"
-          device: "//IP.ADDRESS.OF.SMB/PATH_TO_DB"
+          device: "//REMOTE_IP/PATH_TO_DB"
       fireshare_processed:
         driver_opts:
           type: cifs
           o: "username=USERNAME,password=PASSWORD"
-          device: "//IP.ADDRESS.OF.SMB/PATH_TO_DB"
+          device: "//REMOTE_IP/PATH_TO_DB"
