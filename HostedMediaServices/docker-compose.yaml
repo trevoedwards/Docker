@@ -26,8 +26,8 @@ services:
       - PLEX_CLAIM= #https://www.plex.tv/claim/
     volumes:
       - plex_db:/config
-      - plex_tv:/tv
-      - plex_movies:/movies
+      - plex_tv:/tv:ro
+      - plex_movies:/movies:ro
     restart: unless-stopped
 
   komga:
@@ -37,7 +37,7 @@ services:
     image: gotson/komga:latest
     container_name: komga
     volumes:
-      - comic_lib:/data
+      - comic_lib:/data:ro
       - komga_db:/config
     ports:
       - 7500:8080
