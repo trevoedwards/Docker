@@ -1,0 +1,36 @@
+   # Variables that will need to be changed:
+  #     PUID                            -  User id for folder/file permissions
+  #     PGID                            -  Group id for folder/file permissions
+  #     PATH_TO_CONFIG                  -  Path to folder of config files
+  #     REMOTE_IP                       -  Remote IP address of CIFS mount
+  #     PATH_TO_DB                      -  Path to your service's database
+  #     PATH_TO_LIBRARY                 -  Path to folder of library files 
+  #     USERNAME                        -  Remote mount username
+  #     PASSWORD                        -  Remote mount password
+
+
+---
+version: "3.8"
+
+services: 
+  komga:
+  #Comic Book Server
+    image: gotson/komga:latest
+    container_name: komga
+    volumes:
+      - comic_lib:/data
+      - PATH_TO_CONFIG:/config
+    ports:
+      - 7500:8080
+    restart: unless-stopped
+    environment:
+      - TZ=America/Phoenix
+      - JAVA_TOOL_OPTIONS=-Xmx2g
+
+volumes:
+#SMB Shares to be Mounted
+  comic_lib:
+    driver_opts:
+      type: cifs
+      o: "username=USERNAME,password=PASSWORD"
+      device: "//PATH_TO_LIBRARY/Comics"
