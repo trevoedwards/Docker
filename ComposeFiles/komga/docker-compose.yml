@@ -1,4 +1,4 @@
-   # Variables that will need to be changed:
+  # Variables that may need to be changed:
   #     PUID                            -  User id for folder/file permissions
   #     PGID                            -  Group id for folder/file permissions
   #     PATH_TO_CONFIG                  -  Path to folder of config files
