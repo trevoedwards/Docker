@@ -27,6 +27,6 @@ version: "3.8"
           SITENAME: 'CUSTOM_SITENAME_HERE'
           BGBLUR: 30
           OWMAPIKEY: 'API_KEY_HERE'
-          LATLONG: '33.4484,-112.0740'
+          LATLONG: '33.4484,-112.0740' #Phoenix, AZ
           AMPMCLOCK: 'true'
           METRICTEMP: 'false'
