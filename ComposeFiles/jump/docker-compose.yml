@@ -14,7 +14,7 @@ version: "3.8"
     
     services:
       web:
-      #Startup and real-time status page for your server
+      #startup and real-time status page for your server
         image: daledavies/jump
         ports:
           - 8080:8080
