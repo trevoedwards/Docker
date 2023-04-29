@@ -1,0 +1,32 @@
+  # Variables that will need to be changed:
+  #     PUID                            -  User id for folder/file permissions
+  #     PGID                            -  Group id for folder/file permissions
+  #     PATH_TO_CONFIG                  -  Path to folder of config files
+  #     REMOTE_IP                       -  Remote IP address of CIFS mount
+  #     PATH_TO_DB                      -  Path to your service's database
+  #     PATH_TO_LIBRARY                 -  Path to folder of library files 
+  #     USERNAME                        -  Remote mount username
+  #     PASSWORD                        -  Remote mount password
+
+
+---
+version: "3.8"
+    
+    services:
+      web:
+      #Startup and real-time status page for your server
+        image: daledavies/jump
+        ports:
+          - 8080:8080
+        volumes:
+          - PATH_TO_CONFIG/backgrounds:/backgrounds
+          - PATH_TO_CONFIG/favicon:/favicon
+          - PATH_TO_CONFIG/search:/search
+          - PATH_TO_CONFIG/sites:/sites
+        environment:
+          SITENAME: 'CUSTOM_SITENAME_HERE'
+          BGBLUR: 30
+          OWMAPIKEY: 'API_KEY_HERE'
+          LATLONG: '33.4484,-112.0740'
+          AMPMCLOCK: 'true'
+          METRICTEMP: 'false'
