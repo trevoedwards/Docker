@@ -5,7 +5,7 @@
 
 # HostedMediaServices
 
-This Compose file is commented for clarity, mounts smb shares and currently contains configurations for the following media services:
+This compose stack mounts smb shares and contains configurations for the following media services:
 
 * [Plex](https://github.com/linuxserver/docker-plex) - movie/television media server
 * [Komga](https://github.com/gotson/komga) -  comic book/manga media server
