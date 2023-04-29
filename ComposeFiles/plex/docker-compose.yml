@@ -1,0 +1,44 @@
+  # Variables that will need to be changed:
+  #     PUID                            -  User id for folder/file permissions
+  #     PGID                            -  Group id for folder/file permissions
+  #     PATH_TO_CONFIG                  -  Path to folder of config files
+  #     REMOTE_IP                       -  Remote IP address of CIFS mount
+  #     PATH_TO_DB                      -  Path to your service's database
+  #     PATH_TO_LIBRARY                 -  Path to folder of library files 
+  #     USERNAME                        -  Remote mount username
+  #     PASSWORD                        -  Remote mount password
+
+
+---
+version: "3.8"
+
+services:
+  plex:
+  #Movie/TV Media Server
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Phoenix
+      - VERSION=docker
+      - PLEX_CLAIM=PLEXTOKENHERE #Obtain claim token from https://plex.tv/claim. Keep in mind that the claim tokens expire within 4 minutes.
+    volumes:
+      - PATH_TO_CONFIG:/config
+      - plex_tv:/tv:ro
+      - plex_movies:/movies:ro
+    restart: unless-stopped
+
+volumes:
+#SMB Shares to be Mounted
+  plex_tv:
+    driver_opts:
+      type: cifs
+      o: "username=USERNAME,password=PASSWORD"
+      device: "//PATH_TO_LIBRARY/Television"
+  plex_movies:
+    driver_opts:
+      type: cifs
+      o: "username=USERNAME,password=PASSWORD"
+      device: "//PATH_TO_LIBRARY/Movies"
