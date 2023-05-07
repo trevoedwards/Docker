@@ -3,7 +3,7 @@
 </p>
 <br>
 
-# HostedMediaServices - THIS PART OF THE REPO WILL BE DELETED SOON. 
+# THIS PART OF THE REPO WILL BE DELETED SOON. 
 
 This compose stack mounts smb shares and contains configurations for the following media services:
 
