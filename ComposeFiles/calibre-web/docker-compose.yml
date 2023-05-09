@@ -1,0 +1,31 @@
+  # Variables that may need to be changed:
+  #     PUID                            -  User id for folder/file permissions
+  #     PGID                            -  Group id for folder/file permissions
+  #     PATH_TO_CONFIG                  -  Path to folder of config files
+  #     REMOTE_IP                       -  Remote IP address of CIFS mount
+  #     PATH_TO_DB                      -  Path to your service's database
+  #     PATH_TO_LIBRARY                 -  Path to folder of library files 
+  #     USERNAME                        -  Remote mount username
+  #     PASSWORD                        -  Remote mount password
+
+
+---
+version: "3.8"
+
+services:
+  calibre-web:
+  #eBook Web Server
+    image: lscr.io/linuxserver/calibre-web:latest
+    container_name: calibre-web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Phoenix #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+      - DOCKER_MODS=linuxserver/mods:universal-calibre #optional
+      - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
+    volumes:
+      - PATH_TO_CONFIG:/config
+      - /PATH_TO_LIBRARY:/books
+    ports:
+      - 8083:8083
+    restart: unless-stopped
