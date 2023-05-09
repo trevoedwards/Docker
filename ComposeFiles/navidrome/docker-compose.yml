@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
     user: 1000:1000
     ports:
-      - 6000:4533
+      - 4533:4533
     environment:
     # https://www.navidrome.org/docs/usage/external-integrations/#spotify
       - ND_LASTFM_APIKEY=xxx
@@ -27,6 +27,9 @@ services:
       - ND_SPOTIFY_SECRET=xxx
       - ND_DEFAULTTHEME=dark
       - ND_ENABLEGRAVATAR=true
+      - ND_ENABLESHARING=true
+      - ND_ENABLEFAVOURITES=true
+      - ND_AUTOIMPORTPLAYLISTS=false
     volumes:
       - PATH_TO_DB:/data
       - music_db:/music:ro
