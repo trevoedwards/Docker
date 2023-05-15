@@ -25,7 +25,7 @@ services:
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
     volumes:
       - PATH_TO_CONFIG:/config
-      - /PATH_TO_LIBRARY:/books
+      - PATH_TO_LIBRARY:/books
     ports:
       - 8083:8083
     restart: unless-stopped
