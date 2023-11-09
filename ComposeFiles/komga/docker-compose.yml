@@ -1,4 +1,5 @@
   # Variables that may need to be changed:
+  #
   #     PUID                            -  User id for folder/file permissions
   #     PGID                            -  Group id for folder/file permissions
   #     PATH_TO_CONFIG                  -  Path to folder of config files
@@ -21,7 +22,7 @@ services:
       - comic_lib:/data
       - PATH_TO_CONFIG:/config
     ports:
-      - 7500:8080
+      - 7500:25600
     restart: unless-stopped
     environment:
       - TZ=America/Phoenix
