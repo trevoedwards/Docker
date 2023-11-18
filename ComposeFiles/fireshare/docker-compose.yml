@@ -1,0 +1,41 @@
+  # Variables that will need to be changed:
+  #     PUID                            -  User id for folder/file permissions
+  #     PGID                            -  Group id for folder/file permissions
+  #     PATH_TO_CONFIG                  -  Path to folder of config files
+  #     REMOTE_IP                       -  Remote IP address of CIFS mount
+  #     PATH_TO_DB                      -  Path to your service's database
+  #     PATH_TO_LIBRARY                 -  Path to folder of library files 
+  #     USERNAME                        -  Remote mount username
+  #     PASSWORD                        -  Remote mount password
+
+
+---
+version: "3.8"
+
+services:
+  fireshare:
+  #Self-Hosted Clip Sharing
+    image: shaneisrael/fireshare:latest
+    container_name: fireshare
+    restart: unless-stopped
+    ports:
+      - 9500:80
+    volumes:
+      - PATH_TO_data:/data
+      - PATH_TO_processed:/processed
+      - shared_clips:/videos
+    environment:
+      - ADMIN_USERNAME=USERNAME
+      - ADMIN_PASSWORD=PASSWORD
+      - SECRET_KEY=SECRETKEY
+      - MINUTES_BETWEEN_VIDEO_SCANS=1
+      - PUID=1000
+      - PGID=1000
+
+volumes:
+#SMB Shares to be Mounted
+  shared_clips:
+    driver_opts:
+      type: cifs
+      o: "username=USERNAME,password=PASSWORD"
+      device: "PATH_TO_LIBRARY"
