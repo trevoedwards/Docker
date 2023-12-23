@@ -1,0 +1,40 @@
+  #     Variables that will need to be changed:
+  #
+  #     PGID                            -  Group id for folder/file permissions
+  #     PATH_TO_CONFIG                  -  Path to folder of config files
+  #     REMOTE_IP                       -  Remote IP address of CIFS mount
+  #     PATH_TO_DB                      -  Path to your service's database
+  #     PATH_TO_LIBRARY                 -  Path to folder of library files 
+  #     USERNAME                        -  Remote mount username
+  #     PASSWORD                        -  Remote mount password
+
+
+---
+version: "3.8"
+
+services:
+  wireguard:
+  #private VPN
+      container_name: wireguard
+      image: linuxserver/wireguard
+      ports:
+        - 51820:51820/udp
+      sysctls:
+        - net.ipv4.conf.all.src_valid_mark=1
+      cap_add:
+        - NET_ADMIN
+        - SYS_MODULE
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=America/Phoenix
+        - SERVERURL=auto #optional
+        - SERVERPORT=51820 #optional
+        - PEERS=1 #optional
+        - PEERDNS=auto #optional
+        - ALLOWEDIPS=0.0.0.0/0 #optional
+        - LOGS_CONFS=true #optional
+      volumes:
+        - /PATH_TO_CONFIG/config:/config
+        - /lib/modules:/lib/modules
+      restart: always
