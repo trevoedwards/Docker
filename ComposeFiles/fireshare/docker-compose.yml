@@ -23,7 +23,7 @@ services:
     volumes:
       - PATH_TO_data:/data
       - PATH_TO_processed:/processed
-      - shared_clips:/videos
+      - highlights:/videos
     environment:
       - ADMIN_USERNAME=USERNAME
       - ADMIN_PASSWORD=PASSWORD
@@ -34,7 +34,7 @@ services:
 
 volumes:
 #SMB Shares to be Mounted
-  shared_clips:
+  highlights:
     driver_opts:
       type: cifs
       o: "username=USERNAME,password=PASSWORD"
