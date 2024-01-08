@@ -1,0 +1,53 @@
+  # Variables that will need to be changed:
+  #     PUID                            -  User id for folder/file permissions
+  #     PGID                            -  Group id for folder/file permissions
+  #     PATH_TO_CONFIG                  -  Path to folder of config files
+  #     REMOTE_IP                       -  Remote IP address of CIFS mount
+  #     PATH_TO_DB                      -  Path to your service's database
+  #     PATH_TO_LIBRARY                 -  Path to folder of library files 
+  #     USERNAME                        -  Remote mount username
+  #     PASSWORD                        -  Remote mount password
+
+
+---
+version: "3.8"
+services:
+  gitea-server:
+  # self-hosted Git service
+  # https://github.com/go-gitea/gitea
+    image: gitea/gitea:1.21.3
+    container_name: gitea
+    restart: always
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE=mysql
+      - GITEA__database__HOST=DB-NAME:3306
+      - GITEA__database__NAME=DB-NAME
+      - GITEA__database__USER=USER
+      - GITEA__database__PASSWD=PASSWD
+    networks:
+      - gitea
+    volumes:
+      - PATH_TO_CONFIG/gitea:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3000:3000"
+      - "222:22"
+    depends_on:
+      - gitea-db
+
+  gitea-db:
+    image: mysql:8
+    container_name: gitea-mysql-db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=PASSWRD
+      - MYSQL_USER=USER
+      - MYSQL_PASSWORD=PASSWRD
+      - MYSQL_DATABASE=DB-NAME
+    networks:
+      - gitea
+    volumes:
+      - PATH_TO_CONFIG/gitea-db/mysql:/var/lib/mysql
